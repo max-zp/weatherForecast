@@ -1,0 +1,233 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: WeatherForecastBean</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.zhaopeng.bean</a> ]
+</div>
+
+<h1>Coverage Summary for Class: WeatherForecastBean (com.zhaopeng.bean)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WeatherForecastBean</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.3%
+  </span>
+  <span class="absValue">
+    (21/ 23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    91.2%
+  </span>
+  <span class="absValue">
+    (31/ 34)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.zhaopeng.bean;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.zhaopeng.bean.sub.*;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.util.List;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;/**
+<i>8</i>&nbsp; * coord
+<i>9</i>&nbsp; * coord.lon City geo location, longitude
+<i>10</i>&nbsp; * coord.lat City geo location, latitude
+<i>11</i>&nbsp; * weather (more info Weather condition codes)
+<i>12</i>&nbsp; * weather.id Weather condition id
+<i>13</i>&nbsp; * weather.main Group of weather parameters (Rain, Snow, Extreme etc.)
+<i>14</i>&nbsp; * weather.description Weather condition within the group
+<i>15</i>&nbsp; * weather.icon Weather icon id
+<i>16</i>&nbsp; * base Internal parameter
+<i>17</i>&nbsp; * main
+<i>18</i>&nbsp; * main.temp Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+<i>19</i>&nbsp; * main.pressure Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
+<i>20</i>&nbsp; * main.humidity Humidity, %
+<i>21</i>&nbsp; * main.temp_min Minimum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+<i>22</i>&nbsp; * main.temp_max Maximum temperature at the moment. This is deviation from current temp that is possible for large cities and megalopolises geographically expanded (use these parameter optionally). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+<i>23</i>&nbsp; * main.sea_level Atmospheric pressure on the sea level, hPa
+<i>24</i>&nbsp; * main.grnd_level Atmospheric pressure on the ground level, hPa
+<i>25</i>&nbsp; * wind
+<i>26</i>&nbsp; * wind.speed Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.
+<i>27</i>&nbsp; * wind.deg Wind direction, degrees (meteorological)
+<i>28</i>&nbsp; * clouds
+<i>29</i>&nbsp; * clouds.all Cloudiness, %
+<i>30</i>&nbsp; * rain
+<i>31</i>&nbsp; * rain.1h Rain volume for the last 1 hour, mm
+<i>32</i>&nbsp; * rain.3h Rain volume for the last 3 hours, mm
+<i>33</i>&nbsp; * snow
+<i>34</i>&nbsp; * snow.1h Snow volume for the last 1 hour, mm
+<i>35</i>&nbsp; * snow.3h Snow volume for the last 3 hours, mm
+<i>36</i>&nbsp; * dt Time of data calculation, unix, UTC
+<i>37</i>&nbsp; * sys
+<i>38</i>&nbsp; * sys.type Internal parameter
+<i>39</i>&nbsp; * sys.id Internal parameter
+<i>40</i>&nbsp; * sys.message Internal parameter
+<i>41</i>&nbsp; * sys.country Country code (GB, JP etc.)
+<i>42</i>&nbsp; * sys.sunrise Sunrise time, unix, UTC
+<i>43</i>&nbsp; * sys.sunset Sunset time, unix, UTC
+<i>44</i>&nbsp; * timezone Shift in seconds from UTC
+<i>45</i>&nbsp; * id City ID
+<i>46</i>&nbsp; * name City name
+<i>47</i>&nbsp; * cod Internal parameter
+<i>48</i>&nbsp; */
+<b class="fc"><i>49</i>&nbsp;public class WeatherForecastBean {</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    private String cod;
+<i>52</i>&nbsp;    private String name;
+<i>53</i>&nbsp;    private Integer timezone;
+<i>54</i>&nbsp;    private Coord coord;
+<i>55</i>&nbsp;    private List&lt;Weather&gt; weather;
+<i>56</i>&nbsp;    private String base;
+<i>57</i>&nbsp;    private Main main;
+<i>58</i>&nbsp;    private Wind wind;
+<i>59</i>&nbsp;    private Clouds clouds;
+<i>60</i>&nbsp;    private String dt;
+<i>61</i>&nbsp;    private SYS sys;
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    public String getCod() {
+<b class="fc"><i>64</i>&nbsp;        return cod;</b>
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    public void setCod(String cod) {
+<b class="fc"><i>68</i>&nbsp;        this.cod = cod;</b>
+<b class="fc"><i>69</i>&nbsp;    }</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    public String getName() {
+<b class="fc"><i>72</i>&nbsp;        return name;</b>
+<i>73</i>&nbsp;    }
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    public void setName(String name) {
+<b class="fc"><i>76</i>&nbsp;        this.name = name;</b>
+<b class="fc"><i>77</i>&nbsp;    }</b>
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    public Integer getTimeZone() {
+<b class="nc"><i>80</i>&nbsp;        return timezone;</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;    public void setTimeZone(Integer timezone) {
+<b class="nc"><i>84</i>&nbsp;        this.timezone = timezone;</b>
+<b class="nc"><i>85</i>&nbsp;    }</b>
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    public Coord getCoord() {
+<b class="fc"><i>88</i>&nbsp;        return coord;</b>
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    public void setCoord(Coord coord) {
+<b class="fc"><i>92</i>&nbsp;        this.coord = coord;</b>
+<b class="fc"><i>93</i>&nbsp;    }</b>
+<i>94</i>&nbsp;
+<i>95</i>&nbsp;    public List&lt;Weather&gt; getWeather() {
+<b class="fc"><i>96</i>&nbsp;        return weather;</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    public void setWeather(List&lt;Weather&gt; weather) {
+<b class="fc"><i>100</i>&nbsp;        this.weather = weather;</b>
+<b class="fc"><i>101</i>&nbsp;    }</b>
+<i>102</i>&nbsp;
+<i>103</i>&nbsp;    public String getBase() {
+<b class="fc"><i>104</i>&nbsp;        return base;</b>
+<i>105</i>&nbsp;    }
+<i>106</i>&nbsp;
+<i>107</i>&nbsp;    public void setBase(String base) {
+<b class="fc"><i>108</i>&nbsp;        this.base = base;</b>
+<b class="fc"><i>109</i>&nbsp;    }</b>
+<i>110</i>&nbsp;
+<i>111</i>&nbsp;    public Main getMain() {
+<b class="fc"><i>112</i>&nbsp;        return main;</b>
+<i>113</i>&nbsp;    }
+<i>114</i>&nbsp;
+<i>115</i>&nbsp;    public void setMain(Main main) {
+<b class="fc"><i>116</i>&nbsp;        this.main = main;</b>
+<b class="fc"><i>117</i>&nbsp;    }</b>
+<i>118</i>&nbsp;
+<i>119</i>&nbsp;    public Wind getWind() {
+<b class="fc"><i>120</i>&nbsp;        return wind;</b>
+<i>121</i>&nbsp;    }
+<i>122</i>&nbsp;
+<i>123</i>&nbsp;    public void setWind(Wind wind) {
+<b class="fc"><i>124</i>&nbsp;        this.wind = wind;</b>
+<b class="fc"><i>125</i>&nbsp;    }</b>
+<i>126</i>&nbsp;
+<i>127</i>&nbsp;    public Clouds getClouds() {
+<b class="fc"><i>128</i>&nbsp;        return clouds;</b>
+<i>129</i>&nbsp;    }
+<i>130</i>&nbsp;
+<i>131</i>&nbsp;    public void setClouds(Clouds clouds) {
+<b class="fc"><i>132</i>&nbsp;        this.clouds = clouds;</b>
+<b class="fc"><i>133</i>&nbsp;    }</b>
+<i>134</i>&nbsp;
+<i>135</i>&nbsp;    public String getDt() {
+<b class="fc"><i>136</i>&nbsp;        return dt;</b>
+<i>137</i>&nbsp;    }
+<i>138</i>&nbsp;
+<i>139</i>&nbsp;    public void setDt(String dt) {
+<b class="fc"><i>140</i>&nbsp;        this.dt = dt;</b>
+<b class="fc"><i>141</i>&nbsp;    }</b>
+<i>142</i>&nbsp;
+<i>143</i>&nbsp;    public SYS getSys() {
+<b class="fc"><i>144</i>&nbsp;        return sys;</b>
+<i>145</i>&nbsp;    }
+<i>146</i>&nbsp;
+<i>147</i>&nbsp;    public void setSys(SYS sys) {
+<b class="fc"><i>148</i>&nbsp;        this.sys = sys;</b>
+<b class="fc"><i>149</i>&nbsp;    }</b>
+<i>150</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-12-22 01:15</div>
+</div>
+</body>
+</html>

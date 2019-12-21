@@ -1,0 +1,194 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ConfigBean</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.zhaopeng.config</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ConfigBean (com.zhaopeng.config)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ConfigBean</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/ 16)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$4qIQ9E74</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$5GIJkRKr</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$8LzI2DD3</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$CseG3jf9</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$eBC2b7yS</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$iZopuILc</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$Jk78R3OC</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$JmQ9rf9a</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$k6sSBVzM</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$Ux3Y07P9</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$V3HHLd00</td>
+  </tr>
+  <tr>
+    <td class="name">ConfigBean$MockitoMock$1394491501$auxiliary$Xrs0FlyX</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/ 16)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.zhaopeng.config;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import org.springframework.beans.factory.annotation.Value;
+<i>5</i>&nbsp;import org.springframework.context.annotation.PropertySource;
+<i>6</i>&nbsp;import org.springframework.stereotype.Component;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.util.List;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;@PropertySource({&quot;classpath:thirdAPIConfig.properties&quot;,&quot;query.properties&quot;})
+<i>11</i>&nbsp;@Component
+<b class="fc"><i>12</i>&nbsp;public class ConfigBean {</b>
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    @Value(&quot;${openweathermap.api.url}&quot;)
+<i>15</i>&nbsp;    private String url;
+<i>16</i>&nbsp;    @Value(&quot;${openweathermap.api.param.unit.Fahrenheit}&quot;)
+<i>17</i>&nbsp;    private String fahrenheit;
+<i>18</i>&nbsp;    @Value(&quot;${openweathermap.api.param.unit.Celsius}&quot;)
+<i>19</i>&nbsp;    private String celsius;
+<i>20</i>&nbsp;    @Value(&quot;${openweathermap.api.param.appId}&quot;)
+<i>21</i>&nbsp;    private String appId;
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    @Value(&quot;${query.condition.cities}&quot;)
+<i>24</i>&nbsp;    private List&lt;String&gt; cityList;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    public String getUrl() {
+<b class="fc"><i>27</i>&nbsp;        return url;</b>
+<i>28</i>&nbsp;    }
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    public void setUrl(String url) {
+<b class="fc"><i>31</i>&nbsp;        this.url = url;</b>
+<b class="fc"><i>32</i>&nbsp;    }</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    public String getFahrenheit() {
+<b class="fc"><i>35</i>&nbsp;        return fahrenheit;</b>
+<i>36</i>&nbsp;    }
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    public void setFahrenheit(String fahrenheit) {
+<b class="fc"><i>39</i>&nbsp;        this.fahrenheit = fahrenheit;</b>
+<b class="fc"><i>40</i>&nbsp;    }</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    public String getCelsius() {
+<b class="fc"><i>43</i>&nbsp;        return celsius;</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    public void setCelsius(String celsius) {
+<b class="fc"><i>47</i>&nbsp;        this.celsius = celsius;</b>
+<b class="fc"><i>48</i>&nbsp;    }</b>
+<i>49</i>&nbsp;
+<i>50</i>&nbsp;    public String getAppId() {
+<b class="fc"><i>51</i>&nbsp;        return appId;</b>
+<i>52</i>&nbsp;    }
+<i>53</i>&nbsp;
+<i>54</i>&nbsp;    public void setAppId(String appId) {
+<b class="fc"><i>55</i>&nbsp;        this.appId = appId;</b>
+<b class="fc"><i>56</i>&nbsp;    }</b>
+<i>57</i>&nbsp;
+<i>58</i>&nbsp;    public List&lt;String&gt; getCityList() {
+<b class="fc"><i>59</i>&nbsp;        return cityList;</b>
+<i>60</i>&nbsp;    }
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    public void setCityList(List&lt;String&gt; cityList) {
+<b class="fc"><i>63</i>&nbsp;        this.cityList = cityList;</b>
+<b class="fc"><i>64</i>&nbsp;    }</b>
+<i>65</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2019-12-22 01:15</div>
+</div>
+</body>
+</html>

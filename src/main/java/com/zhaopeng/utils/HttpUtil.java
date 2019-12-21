@@ -37,7 +37,6 @@ public class HttpUtil {
         Request request =new Request.Builder().url(url).build();
         Response response = okHttpClient.newCall(request). execute();
         String jsonResult = response.body().string();
-        System.out.println(jsonResult);
         return JsonUtil.json2Bean(jsonResult, tClass);
     }
 
