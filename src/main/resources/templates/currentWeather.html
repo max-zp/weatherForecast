@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Weather</title>
+</head>
+<body>
+
+
+<div class="form-group">
+    <form name='queryForm' method='GET' th:action="@{../weather/current?city=*{city}}">
+        <table>
+            <tr>
+                <td>Select Country:</td>
+                <td>
+                <select name="city" id="city" class="input-select" th:value="*{city}">
+                    <option value="">--Please Select City--</option>
+                    <option th:each="city:${cityList}" th:selected="${queryCity eq city}" th:value="${city}" th:text="${city}"></option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input name="submit" type="submit" value="submit" /></td>
+            </tr>
+        </table>
+</div>
+
+
+<div th:if="${currentWeather != null}">
+<table class="dataintable"  border="1" style="border:1px solid #aaa;width: 50%;">
+    <tbody>
+    <tr>
+        <td>city</td>
+        <td>
+            <span th:text="${currentWeather.name}"></span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Weather</td>
+        <td th:if="${currentWeather.weather!= null}">
+            <span th:text="${currentWeather.weather[0].main}">
+            </span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Temperature</td>
+        <td th:if="${currentWeather.weather!= null}">
+            <span th:text="${currentWeather.main.temp}+'°C'">
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>Feels_Like</td>
+        <td>
+            <span th:text="${currentWeather.main.feels_like}+'°C'">
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>temp_min</td>
+        <td>
+            <span th:text="${currentWeather.main.temp_min}+'°C'">
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>temp_max</td>
+        <td>
+            <span th:text="${currentWeather.main.temp_max}+'°C'">
+            </span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>wind</td>
+        <td>
+            <span th:text="${currentWeather.wind.speed}+'km/h'">
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
