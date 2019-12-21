@@ -1,5 +1,6 @@
 package com.zhaopeng.controller;
 
+import com.zhaopeng.config.QueryConstants;
 import com.zhaopeng.service.QueryConditionService;
 import com.zhaopeng.service.WeatherForecastService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +22,39 @@ public class WeatherForecastController {
     @Autowired
     private QueryConditionService queryConditionService;
 
-    @RequestMapping(value = "/current", method = RequestMethod.GET)
-    public ModelAndView getWeatherForecasts(@RequestParam(name = "city") String city) throws IOException {
+    @RequestMapping(value = "/city/current", method = RequestMethod.GET)
+    public ModelAndView getWeatherForecastsByCity(@RequestParam(name = "city") String city) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("currentWeather");
         modelAndView.addObject("cityList", queryConditionService.getCityList());
         if(null != city && !"".equals(city)) {
-            modelAndView.addObject("currentWeather", weatherForecastService.getCurrentWeather(city));
+            modelAndView.addObject("currentWeather", weatherForecastService.getCurrentWeather(QueryConstants.TYPE_CITY,city));
             modelAndView.addObject("queryCity", city);
         }
+        return modelAndView;
+    }
 
+    @RequestMapping(value = "/id/current", method = RequestMethod.GET)
+    public ModelAndView getWeatherForecastsById(@RequestParam(name = "id") Integer id) throws IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("currentWeather");
+        modelAndView.addObject("cityList", queryConditionService.getCityList());
+        if(null != id) {
+            modelAndView.addObject("currentWeather", weatherForecastService.getCurrentWeather(QueryConstants.TYPE_ID,id.toString()));
+            modelAndView.addObject("queryId", id);
+        }
+        return modelAndView;
+    }
 
+    @RequestMapping(value = "/zip/current", method = RequestMethod.GET)
+    public ModelAndView getWeatherForecastsByZip(@RequestParam(name = "zip") Integer zip) throws IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("currentWeather");
+        modelAndView.addObject("cityList", queryConditionService.getCityList());
+        if(null != zip) {
+            modelAndView.addObject("currentWeather", weatherForecastService.getCurrentWeather(QueryConstants.TYPE_ZIP,zip.toString()));
+            modelAndView.addObject("queryZip", zip);
+        }
         return modelAndView;
     }
 }

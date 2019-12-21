@@ -2,6 +2,7 @@ package com.zhaopeng.service.impl;
 
 import com.zhaopeng.bean.WeatherForecastBean;
 import com.zhaopeng.config.ConfigBean;
+import com.zhaopeng.config.QueryConstants;
 import com.zhaopeng.service.WeatherForecastService;
 import com.zhaopeng.utils.HttpUtil;
 import org.slf4j.Logger;
@@ -23,8 +24,8 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
     private HttpUtil httpUtil = HttpUtil.getInstance();
 
     @Override
-    public WeatherForecastBean getCurrentWeather(String queryParam) throws IOException {
-        WeatherForecastBean weatherInfo = processRequest(queryParam);
+    public WeatherForecastBean getCurrentWeather(String queryType, String paramValue) throws IOException {
+        WeatherForecastBean weatherInfo = processRequest(queryType, paramValue);
         return weatherInfo;
     }
 
@@ -33,7 +34,21 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
         return null;
     }
 
-    private WeatherForecastBean processRequest(String queryParam) throws IOException {
+    private WeatherForecastBean processRequest(String queryType, String paramValue) throws IOException {
+        String queryParam = "?";
+
+        switch (queryType){
+            case QueryConstants.TYPE_CITY:
+                queryParam = queryParam + "q=" + paramValue;
+                break;
+            case QueryConstants.TYPE_ID:
+            case QueryConstants.TYPE_ZIP:
+                queryParam = queryParam + queryType + "=" + paramValue;
+                break;
+            default:
+                break;
+        }
+
         String requestUrl = buildRequestUrl(queryParam, configBean);
         log.info("request url : {}", requestUrl);
         return httpUtil.getData(requestUrl, WeatherForecastBean.class);
@@ -47,12 +62,13 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
         StringBuilder builder = new StringBuilder();
 
         builder.append(url);
-        builder.append("?q=").append(query);
+        builder.append(query);
         builder.append("&");
         builder.append("units=").append(celsiusUnit);
         builder.append("&");
         builder.append("appId=").append(appId);
         return builder.toString();
     }
+
 
 }

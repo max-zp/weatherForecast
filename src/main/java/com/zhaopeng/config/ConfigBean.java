@@ -62,4 +62,5 @@ public class ConfigBean {
     public void setCityList(List<String> cityList) {
         this.cityList = cityList;
     }
+
 }

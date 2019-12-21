@@ -27,7 +27,7 @@ public class WeatherForecastControllerTest{
 	@Test
     public void testGetWeatherForecasts(){
 		try{
-			org.springframework.web.servlet.ModelAndView result = weatherForecastController.getWeatherForecasts("Melbourne");
+			org.springframework.web.servlet.ModelAndView result = weatherForecastController.getWeatherForecastsByCity("Melbourne");
 		}catch (Exception e) {
 		}
 

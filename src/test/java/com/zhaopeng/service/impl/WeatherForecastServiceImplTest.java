@@ -30,7 +30,7 @@ public class WeatherForecastServiceImplTest{
 	@Test
     public void testGetCurrentWeather(){
 		try{
-			com.zhaopeng.bean.WeatherForecastBean result = weatherForecastServiceImpl.getCurrentWeather("123");
+			com.zhaopeng.bean.WeatherForecastBean result = weatherForecastServiceImpl.getCurrentWeather("city","Beijing");
 		}catch (Exception e) {
 		}
 
