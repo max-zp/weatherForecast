@@ -22,7 +22,7 @@ public class WeatherForecastController {
     @Autowired
     private QueryConditionService queryConditionService;
 
-    @RequestMapping(value = "/city/current", method = RequestMethod.GET)
+    @RequestMapping(value = "/current", method = RequestMethod.GET)
     public ModelAndView getWeatherForecastsByCity(@RequestParam(name = "city") String city) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("currentWeather");

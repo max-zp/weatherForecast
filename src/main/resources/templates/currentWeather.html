@@ -8,7 +8,7 @@
 
 
 <div class="form-group">
-    <form name='queryForm' method='GET' th:action="@{/weather/city/current?city=*{city}}">
+    <form name='queryForm' method='GET' th:action="@{/weather/current?city=*{city}}">
         <table>
             <tr>
                 <td>Select Country:</td>
@@ -20,7 +20,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input name="submit" type="submit" value="submit" /></td>
+                <td><input name="submit" type="submit" value="search" /></td>
             </tr>
         </table>
 </div>

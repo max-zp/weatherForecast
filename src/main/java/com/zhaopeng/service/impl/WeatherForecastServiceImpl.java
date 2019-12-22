@@ -22,12 +22,17 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
     private ConfigBean configBean;
 
     private HttpUtil httpUtil = HttpUtil.getInstance();
-
+    /**
+     *
+     * @param queryType, paramValue
+     * @return current weather detail
+     */
     @Override
     public WeatherForecastBean getCurrentWeather(String queryType, String paramValue) throws IOException {
         WeatherForecastBean weatherInfo = processRequest(queryType, paramValue);
         return weatherInfo;
     }
+
 
     @Override
     public List<WeatherForecastBean> getFutureWeatherInfo(String queryParam) {
