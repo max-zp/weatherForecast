@@ -3,83 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <title>Current Weather</title>
+    <link th:href="@{/layui/css/layui.css}" rel="stylesheet"/>
+    <script th:src="@{/layui/layui.js}"></script>
 </head>
 <body>
 
 
-<div class="form-group">
-    <form name='queryForm' method='GET' th:action="@{/weather/current?city=*{city}}">
-        <table>
-            <tr>
-                <td>Select Country:</td>
-                <td>
-                <select name="city" id="city" class="input-select" th:value="*{city}">
-                    <option value="">--Please Select City--</option>
-                    <option th:each="city:${cityList}" th:selected="${queryCity eq city}" th:value="${city}" th:text="${city}"></option>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td><input name="submit" type="submit" value="search" /></td>
-            </tr>
-        </table>
+<script>
+//Demo test
+layui.use('form', function(){
+  var form = layui.form;
+
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>
+<div class="layui-form-item">
+<form class="layui-form"  method='GET' th:action="@{/weather/current?city=*{city}}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">Select City</label>
+        <div class="layui-input-inline">
+            <select name="city" id="city" th:value="*{city}">
+                <option value="">--Please Select City--</option>
+                <option th:each="city:${cityList}" th:selected="${queryCity eq city}" th:value="${city}"
+                        th:text="${city}"></option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <input class="layui-btn" name="submit" type="submit" value="Search"/>
+            <button type="reset" class="layui-btn layui-btn-primary">Reset</button>
+        </div>
+    </div>
+</form>
 </div>
-
+<div class="layui-form-item">
 <div th:if="${currentWeather != null}">
-<table class="dataintable"  border="1" style="border:1px solid #aaa;width: 50%;">
-    <tbody>
-    <tr>
-        <td>City</td>
-        <td>
-            <span th:text="${currentWeather.name}"></span>
-        </td>
-    </tr>
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="200">
+            <col>
+        </colgroup>
+        <tbody>
+        <tr>
+            <td>City</td>
+            <td>
+                <span th:text="${currentWeather.name}"></span>
+            </td>
+        </tr>
 
-    <tr>
-        <td>Weather</td>
-        <td th:if="${currentWeather.weather!= null}">
+        <tr>
+            <td>Weather</td>
+            <td th:if="${currentWeather.weather!= null}">
             <span th:text="${currentWeather.weather[0].main}">
             </span>
-        </td>
-    </tr>
-    <tr>
-        <td>Temperature</td>
-        <td th:if="${currentWeather.weather!= null}">
+            </td>
+        </tr>
+        <tr>
+            <td>Temperature</td>
+            <td th:if="${currentWeather.weather!= null}">
             <span th:text="${currentWeather.main.temp}+'°C'">
             </span>
-        </td>
-    </tr>
-    <tr>
-        <td>Feels_Like</td>
-        <td>
+            </td>
+        </tr>
+        <tr>
+            <td>Feels_Like</td>
+            <td>
             <span th:text="${currentWeather.main.feels_like}+'°C'">
             </span>
-        </td>
-    </tr>
-    <tr>
-        <td>Min Temperature</td>
-        <td>
+            </td>
+        </tr>
+        <tr>
+            <td>Min Temperature</td>
+            <td>
             <span th:text="${currentWeather.main.temp_min}+'°C'">
             </span>
-        </td>
-    </tr>
-    <tr>
-        <td>Max Temperature</td>
-        <td>
+            </td>
+        </tr>
+        <tr>
+            <td>Max Temperature</td>
+            <td>
             <span th:text="${currentWeather.main.temp_max}+'°C'">
             </span>
-        </td>
-    </tr>
+            </td>
+        </tr>
 
-    <tr>
-        <td>Wind</td>
-        <td>
+        <tr>
+            <td>Wind</td>
+            <td>
             <span th:text="${currentWeather.wind.speed}+'km/h'">
             </span>
-        </td>
-    </tr>
-    </tbody>
-</table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </div>
 </body>
 </html>
